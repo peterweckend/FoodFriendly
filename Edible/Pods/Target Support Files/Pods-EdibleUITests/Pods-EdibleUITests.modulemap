@@ -1,0 +1,6 @@
+framework module Pods_EdibleUITests {
+  umbrella header "Pods-EdibleUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
