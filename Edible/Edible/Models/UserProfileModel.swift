@@ -35,7 +35,7 @@ class UserProfileModel {
     }
     
     init(snapshot: DataSnapshot) {
-        if !snapshot.exists() {
+        if !snapshot.exists() || snapshot.value is NSNull {
             print("User profile not found.")
         }
         key = snapshot.key
