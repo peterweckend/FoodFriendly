@@ -81,7 +81,7 @@ class RestaurantModel {
         distanceFromUserInKm = nil
         isStarredByCurrentUser = false
         //tags = snapshotValue[Constants.RestaurantTags] as! [String]
-        tags = ["test tags 123"]
+        tags = ["Casual, Comfort Food, Locally Sourced"] // todo: implement
     }
     
     init(nsdictionary: NSDictionary) {
@@ -94,7 +94,7 @@ class RestaurantModel {
         lat = NSString(format: "%@", nsdictionary["lat"] as! CVarArg) as String
         lng = NSString(format: "%@", nsdictionary["lng"] as! CVarArg) as String
         //tags = nsdictionary[Constants.RestaurantTags] as! [String]
-        tags = ["test tags 123"]
+        tags = ["Casual, Comfort Food, Locally Sourced"] // todo: implement
         isStarredByCurrentUser = false
         key = ""
         ref = nil
