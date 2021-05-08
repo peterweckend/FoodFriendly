@@ -22,5 +22,6 @@ My next (coding) steps for this application would be primarily to further improv
 After that, there are a number of features I'd like to add, including 
 * creating a user-friendly way for restaurants to manage their pages and menus
 * creating an algorithm to dictate what restaurants appear on the featured page (ex: a combination of sponsored restaurants and restaurants that the app thinks the user would enjoy)
+* open up the application for other dietary needs, such as gluten-free, pescatarian, etc.
 * overall immproved UI/UX across the board
 
