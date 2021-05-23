@@ -1,6 +1,8 @@
 # FoodFriendly
 FoodFriendly is a Proof of Concept/MVP iOS social media app that helps vegetarians and vegans find food in restaurants easier. 
 
+DEMO: https://youtu.be/CpdDrbAIb2Y 
+
 As of 2018, 9.4 of Canadian adults consider themselves vegetarian, up from 4% of adults in 2003. It's expected that this number will continue to rise, as will the number of people looking to cut down the amount of meat they consume. Despite this, there are very few ways for vegetarians and vegans to evaluate whether a restaurant is suitable for them, short of reading the menu of a restaurant themselves. 
 
 FoodFriendly aims to improve this by giving an easy way for people to view vegetarian and vegan friendly menu items and allowing vegetarian and vegan users to review restaurant menus and help out other FoodFriendly users.
