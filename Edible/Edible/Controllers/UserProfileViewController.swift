@@ -13,6 +13,7 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var dietImageView: UIImageView!
     var authUser = Auth.auth().currentUser
     var reviews = [ReviewByUserModel]()
+    let storage = Storage.storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,16 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
             userProfileRef.observe(DataEventType.value, with: { (snapshot) in
                 let userProfile = UserProfileModel(snapshot: snapshot)
                 self.userNameLabel.text = userProfile.firstName + " " + userProfile.lastName
+                
                 self.userProfileImageView.af_setImage(withURL: Foundation.URL(string: userProfile.photoUrl)!)
+                let userProfilePicRef = self.storage.reference().child("users/\(self.authUser.uid)/profilePicture.jpg")
+//                // max size 12MB
+//                userProfilePicRef.getData(maxSize: 12 * 1024 * 1024) { data, error in
+//                    if let error = error {
+//                        print(error)
+//                    } else {
+//                        self.restaurantPhotoAImageView.image = UIImage(data: data!)
+//                    }
                 
                 if userProfile.dietName == DietModel.vegan {
                     self.dietImageView.image = UIImage(named: "vegan")

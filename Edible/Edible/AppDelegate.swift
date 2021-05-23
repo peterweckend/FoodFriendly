@@ -13,8 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        GMSServices.provideAPIKey("AIzaSyCJR1A6QVlIlSa8JxMFNfTXyqQw5brf-io")
-        GMSPlacesClient.provideAPIKey("AIzaSyCJR1A6QVlIlSa8JxMFNfTXyqQw5brf-io")
+        GMSServices.provideAPIKey("AIzaSyAJq7Tz6O3dxReEWb19WsoNyka0y2g6NeQ")
+        GMSPlacesClient.provideAPIKey("AIzaSyAJq7Tz6O3dxReEWb19WsoNyka0y2g6NeQ")
         
         // This will send the user to the Featured tab if they are already signed in.
         // If the user is not signed in, they will go to the intro page.

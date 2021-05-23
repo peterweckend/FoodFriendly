@@ -32,21 +32,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UITableVie
     var isLocationEnabled = false
     var restaurantFilter: FilterModel?
     
-    // used to hide or show the list of restaurants
-//    var isListHidden = false {
-//        didSet {
-//            if isListHidden {
-//                showListButton.setTitle("Show Restaurants", for: UIControlState.normal)
-//                restaurantTableView.isHidden = true
-//                dismissKeyboard()
-//                searchController.isActive = false
-//            } else {
-//                showListButton.setTitle("Hide Restaurants", for: UIControlState.normal)
-//                restaurantTableView.isHidden = false
-//            }
-//        }
-//    }
-    
     let starredRef = Database.database().reference(withPath: Constants.StarredRestaurants)
     
     let searchController = UISearchController(searchResultsController: nil)
