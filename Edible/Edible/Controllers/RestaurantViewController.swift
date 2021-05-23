@@ -140,11 +140,23 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         
         // only want dishes for the loaded restaurant
         let dishesRef = Database.database().reference(withPath: "dishes/\(restaurant!.key)")
+        let dishRatingRef = Database.database().reference(withPath: Constants.DishRatings)
         
         // Listen for new dishes in the Firebase database
         // should be something like ref.queryby... .observe
         dishesRef.observe(.childAdded, with: { (snapshot) -> Void in
             let dish = DishModel(snapshot: snapshot)
+            
+            // get dish rating if it exists
+            dishRatingRef.child("\(self.restaurant!.key)/\(dish.key)").observe(.value, with: { (snapshot) in
+                if(snapshot.exists()) {
+                    dish.overallRating = RestaurantHelper.findOverallDishRating(ratingModel: DishRatingModel(snapshot: snapshot))
+                    self.dishesTableView.reloadData()
+                }
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+            
             self.dishes.append(dish)
             self.dishesTableView.reloadData()
         })
@@ -175,7 +187,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
                 let userProfileRef = Database.database().reference(withPath: "userProfiles/\(tip.tipUserId)")
                 userProfileRef.observeSingleEvent(of: .value, with: { (snapshot) in
                     let userProfile = UserProfileModel(snapshot: snapshot)
-                    self.tipUserLabel.text = userProfile.firstName + " " + userProfile.lastName
+                    self.tipUserLabel.text = "-" + userProfile.firstName + " " + userProfile.lastName
                 })
             }
         }) { (error) in
@@ -322,6 +334,18 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
             let dishItem = dishes[indexPath.row]
             cell.dishTitle.text = dishItem.name
             cell.dishDescription.text = dishItem.description
+            // am i looking at the wrong model for the below items?
+            if dishItem.overallRating == nil {
+                cell.dishRatingProgressView.isHidden = true
+                cell.dishRatingLabel.isHidden = true
+                cell.dishRatingStaticLabel.isHidden = true
+            } else {
+                cell.dishRatingProgressView.progress = dishItem.overallRating!
+                cell.dishRatingLabel.text = RestaurantHelper.convertRatingToStringPercentage(rating: dishItem.overallRating!)
+                cell.dishRatingProgressView.isHidden = false
+                cell.dishRatingLabel.isHidden = false
+                cell.dishRatingStaticLabel.isHidden = false
+            }
             
             return cell
         } else {
@@ -333,8 +357,16 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
             userProfileRef.observe(DataEventType.value, with: { (snapshot) in
                 let userProfile = UserProfileModel(snapshot: snapshot)
                 cell.reviewerName.text = userProfile.firstName + " " + userProfile.lastName.prefix(1)
-                cell.userPhoto.af_setImage(withURL: Foundation.URL(string: userProfile.photoUrl)!)
                 
+                let userProfilePicRef = self.storage.reference().child("users/\( reviewItem.reviewingUserId)/profilePicture.jpg")
+//                // max size 6MB
+                userProfilePicRef.getData(maxSize: 6 * 1024 * 1024) { data, error in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        cell.userPhoto.image = UIImage(data: data!)
+                    }
+                }
             })
             
             cell.reviewDescription.text = reviewItem.description

@@ -7,6 +7,9 @@ class RestaurantDishTableViewCell: UITableViewCell {
 
     @IBOutlet weak var dishTitle: UILabel!
     @IBOutlet weak var dishDescription: UILabel!
+    @IBOutlet weak var dishRatingProgressView: UIProgressView!
+    @IBOutlet weak var dishRatingLabel: UILabel!
+    @IBOutlet weak var dishRatingStaticLabel: UILabel!
     
     
     
