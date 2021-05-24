@@ -1,7 +1,14 @@
 # FoodFriendly
 FoodFriendly is a Proof of Concept/MVP iOS social media app that helps vegetarians and vegans find food in restaurants easier. 
 
-DEMO: https://youtu.be/CpdDrbAIb2Y 
+**View the demo here: https://youtu.be/CpdDrbAIb2Y**
+
+<p align="center">
+  <img src="Screenshots/LandingScreen.png" width="200" title="Landing screen of FoodFriendly" alt="Landing Screen of FoodFriendly">
+  <img src="Screenshots/RestaurantDetailsScreen.png" width="200" title="Restaurant Details screen of FoodFriendly" alt="Restaurant Details screen of FoodFriendly">
+  <img src="Screenshots/RestaurantsScreen.png" width="200" title="Featured Restaurants screen of FoodFriendly" alt="Featured Restaurants screen of FoodFriendly">
+  <img src="Screenshots/MenuScreen.png" width="200" title="Menu screen of FoodFriendly" alt="Menu screen of FoodFriendly">
+</p>
 
 As of 2018, 9.4 of Canadian adults consider themselves vegetarian, up from 4% of adults in 2003. It's expected that this number will continue to rise, as will the number of people looking to cut down the amount of meat they consume. Despite this, there are very few ways for vegetarians and vegans to evaluate whether a restaurant is suitable for them, short of reading the menu of a restaurant themselves. 
 
@@ -17,7 +24,7 @@ Users can view the menus for a restaurants, including reviews and descriptions f
 ## Development
 The application was developed using Swift with Firebase for authentication, storage, and database functionality. 
 
-The MVP was primarily coded by myself, with my partne handling the business, content, and UI/UX aspects of the project. Prior to this project, I didn't have an experience with Swift or iOS development and I found this to be a great way to cut my teeth. The 
+The MVP was primarily coded by myself in 2018, with my partner handling the business, content, and UI/UX aspects of the project. Prior to this project, I didn't have an experience with Swift or iOS development and I found this to be a great way to cut my teeth. The 
 
 My next (coding) steps for this application would be primarily to further improve the responsiveness of the application on a wide variety of devices, increase unit test coverage for the project, and refactor how the models of the application have been set up to better deal with a NoSQL-style database. 
 
@@ -25,5 +32,5 @@ After that, there are a number of features I'd like to add, including
 * creating a user-friendly way for restaurants to manage their pages and menus
 * creating an algorithm to dictate what restaurants appear on the featured page (ex: a combination of sponsored restaurants and restaurants that the app thinks the user would enjoy)
 * open up the application for other dietary needs, such as gluten-free, pescatarian, etc.
-* overall immproved UI/UX across the board
+* overall improved UI/UX across the board
 
