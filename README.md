@@ -1,5 +1,5 @@
 # FoodFriendly
-FoodFriendly is a Proof of Concept/MVP iOS social media app that helps vegetarians and vegans find food in restaurants easier. 
+FoodFriendly is a Proof of Concept/MVP iOS social media app that helps vegetarians and vegans find food in restaurants easier. The app was primarily developed in 2018 and was a great way to teach myself Swift and iOS development. I hope to continue working on the application to update it to be more compatible with today's iOS versions and further develop my knowledge about Swift best practices.
 
 **View the demo here: https://youtu.be/CpdDrbAIb2Y**
 
